@@ -29,6 +29,17 @@ class Media extends BaseMedia
      * @var int $id
      */
     protected $id;
+    
+    /**
+      * @var User
+      *
+      * @ORM\ManyToOne(targetEntity="UserEntity", inversedBy="images")
+      * @ORM\JoinColumns({
+      *     @ORM\JoinColumn(name="user", referencedColumnName="id")
+      * })
+      */
+    private $user;
+
 
     /**
      * Get id
@@ -38,5 +49,15 @@ class Media extends BaseMedia
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Get user
+     * 
+     * @return User $user
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }
