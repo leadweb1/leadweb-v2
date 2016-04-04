@@ -13,9 +13,9 @@ class AppKernel extends Kernel
             new Symfony\Bundle\TwigBundle\TwigBundle(),
             new Symfony\Bundle\MonologBundle\MonologBundle(),
             new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
+            new Symfony\Bundle\AsseticBundle\AsseticBundle(),
 
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
-            new Doctrine\Bundle\MongoDBBundle\DoctrineMongoDBBundle(),
 
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             
@@ -23,6 +23,20 @@ class AppKernel extends Kernel
             
             new JMS\SerializerBundle\JMSSerializerBundle(),
             
+            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
+            
+            new Knp\Bundle\MenuBundle\KnpMenuBundle(),
+
+            new Sonata\CoreBundle\SonataCoreBundle(),
+            new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
+            new Sonata\BlockBundle\SonataBlockBundle(),
+            new Sonata\MediaBundle\SonataMediaBundle(),
+            new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
+            new Sonata\AdminBundle\SonataAdminBundle(),
+            new Sonata\TranslationBundle\SonataTranslationBundle(),
+            
+            new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
+
             new AppBundle\AppBundle(),
         ];
 
