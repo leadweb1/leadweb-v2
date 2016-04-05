@@ -185,10 +185,32 @@ class Project
     {
         return $this->images;
     }
-    public function addImage(\AppBundle\Entity\ProjectImage $image)
+
+    /**
+     * Set images
+     *
+     * @param ArrayCollection $images
+     *
+     * @return Project
+     */
+    public function setImages($images)
+    {
+        $this->images = $images;
+
+        return $this;
+    }
+
+    public function addImage(ProjectImage $image)
     {
         $image->setProject($this);
         $this->images[] = $image;
+
+        return $this;
+    }
+
+    public function removeImage(ProjectImage $image)
+    {
+        $this->images->remove($image);
 
         return $this;
     }

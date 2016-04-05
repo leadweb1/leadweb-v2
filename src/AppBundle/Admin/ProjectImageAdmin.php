@@ -47,7 +47,7 @@ class ProjectImageAdmin extends Admin
                 'required' => false
             ), array(
                 'link_parameters' => array(
-                    'context' => 'product_image'
+                    'context' => 'default'
                 )
             ))
             ->add('position')

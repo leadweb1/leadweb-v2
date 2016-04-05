@@ -39,7 +39,7 @@ class ProjectImage
     /**
      * @var Application\Sonata\MediaBundle\Entity\Media
      * 
-     * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media")
+     * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"all"})
      */
     private $image;
 
