@@ -36,11 +36,15 @@ class ProjectType
 
 
     /**
-     * User class constructor
+     * ProjectType class constructor
      */
     public function __construct()
     {
         $this->projects = new ArrayCollection();
+    }
+    
+    public function __toString() {
+        return $this->title;
     }
 
     /**

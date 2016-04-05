@@ -36,11 +36,15 @@ class Client
 
 
     /**
-     * User class constructor
+     * Client class constructor
      */
     public function __construct()
     {
         $this->projects = new ArrayCollection();
+    }
+    
+    public function __toString() {
+        return $this->name;
     }
 
     /**

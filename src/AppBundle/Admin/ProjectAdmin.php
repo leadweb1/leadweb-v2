@@ -29,6 +29,8 @@ class ProjectAdmin extends Admin
         $listMapper
             ->add('title')
             ->add('description')
+            ->add('type')
+            ->add('client')
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -47,6 +49,39 @@ class ProjectAdmin extends Admin
         $formMapper
             ->add('title')
             ->add('description')
+            ->add('type', 'sonata_type_model', array(
+                'class' => 'AppBundle\Entity\ProjectType',
+                'empty_value' => 'Select a projecty type...',
+                'btn_add' => false,
+            ))
+            ->add('client', 'sonata_type_model', array(
+                'class' => 'AppBundle\Entity\Client',
+                'empty_value' => 'Select a client...',
+                'btn_add' => false,
+            ))
+            ->add('images', 'sonata_type_collection', array(
+                'type_options' => array(
+                    // Prevents the "Delete" option from being displayed
+                    'delete' => false,
+                    'delete_options' => array(
+                        // You may otherwise choose to put the field but hide it
+                        'type'         => 'hidden',
+                        // In that case, you need to fill in the options as well
+                        'type_options' => array(
+                            'mapped'   => false,
+                            'required' => false,
+                        )
+                    )
+                )
+            ), array(
+                'edit' => 'inline',
+                'inline' => 'table',
+                'sortable' => 'position',
+                'link_parameters' => array(
+                    'context' => 'default',
+                    'provider' => 'sonata.media.provider.image'
+                ),
+            ))
         ;
     }
 
@@ -59,5 +94,19 @@ class ProjectAdmin extends Admin
             ->add('title')
             ->add('description')
         ;
+    }
+
+    public function prePersist($object)
+    {
+        foreach ($object->getImages() as $image) {
+            $image->setProject($object);
+        }
+    }
+
+    public function preUpdate($object)
+    {
+        foreach ($object->getImages() as $image) {
+            $image->setProject($object);
+        }
     }
 }

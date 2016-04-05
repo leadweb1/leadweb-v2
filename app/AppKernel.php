@@ -35,6 +35,7 @@ class AppKernel extends Kernel
             new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
             new Sonata\AdminBundle\SonataAdminBundle(),
             new Sonata\TranslationBundle\SonataTranslationBundle(),
+            new Sonata\IntlBundle\SonataIntlBundle(),
             
             new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
 

@@ -37,23 +37,9 @@ class Project
     private $description;
 
     /**
-      * @var Media
+      * @var ProjectImage
       *
-      * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media")
-      * @ORM\JoinColumns({
-      *     @ORM\JoinColumn(name="defaultImage", referencedColumnName="id")
-      * })
-      */
-    private $defaultImage;
-
-    
-    /**
-      * @var Media
-      *
-      * @ORM\OneToMany(targetEntity="Application\Sonata\MediaBundle\Entity\Media", mappedBy="user")
-      * @ORM\JoinColumns({
-      *   @ORM\JoinColumn(name="images", referencedColumnName="id")
-      * })
+      * @ORM\OneToMany(targetEntity="ProjectImage", mappedBy="project", cascade={"all"})
       */
     private $images;
     
@@ -61,7 +47,6 @@ class Project
      * @var ProductType
      * 
      * @ORM\ManyToOne(targetEntity="ProjectType", inversedBy="projects")
-     * @ORM\JoinColumn(name="type_id", referencedColumnName="id")
      */
     private $type;
     
@@ -69,17 +54,20 @@ class Project
      * @var Client
      * 
      * @ORM\ManyToOne(targetEntity="Client", inversedBy="projects")
-     * @ORM\JoinColumn(name="client_id", referencedColumnName="id")
      */
     private $client;
     
 
     /**
-     * User class constructor
+     * Project class constructor
      */
     public function __construct()
     {
         $this->images = new ArrayCollection();
+    }
+    
+    public function __toString() {
+        return $this->title;
     }
 
     /**
@@ -138,6 +126,71 @@ class Project
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * Set type
+     *
+     * @param string $type
+     *
+     * @return Project
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return ProjectType
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * Set client
+     *
+     * @param string $client
+     *
+     * @return Project
+     */
+    public function setClient($client)
+    {
+        $this->client = $client;
+
+        return $this;
+    }
+
+    /**
+     * Get client
+     *
+     * @return string
+     */
+    public function getClient()
+    {
+        return $this->client;
+    }
+
+    /**
+     * Get images
+     *
+     * @return ArrayCollection
+     */
+    public function getImages()
+    {
+        return $this->images;
+    }
+    public function addImage(\AppBundle\Entity\ProjectImage $image)
+    {
+        $image->setProject($this);
+        $this->images[] = $image;
+
+        return $this;
     }
 }
 
