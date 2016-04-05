@@ -20,7 +20,6 @@ security:
             security: false
 
         main:
-            http_basic: ~
             pattern: ^/
             form_login:
                 provider: fos_userbundle
