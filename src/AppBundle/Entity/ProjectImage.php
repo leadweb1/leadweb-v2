@@ -23,7 +23,7 @@ class ProjectImage
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      * 
-     * @Groups({"project", "projects"})
+     * @Groups({"leadweb", "projectimage", "projectimages", "project", "projects"})
      */
     private $id;
 
@@ -33,7 +33,7 @@ class ProjectImage
      * @Gedmo\SortablePosition
      * @ORM\Column(name="position", type="integer")
      * 
-     * @Groups({"project", "projects"})
+     * @Groups({"leadweb", "projectimage", "projectimages", "project", "projects"})
      */
     private $position;
 
@@ -42,6 +42,8 @@ class ProjectImage
      * 
      * @ORM\ManyToOne(targetEntity="Project", inversedBy="images")
      * @ORM\OrderBy({"position" = "ASC"})
+     * 
+     * @Groups({"leadweb", "projectimage", "projectimages"})
      */
     private $project;
     
@@ -50,7 +52,7 @@ class ProjectImage
      * 
      * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"all"})
      * 
-     * @Groups({"project", "projects"})
+     * @Groups({"leadweb", "projectimage", "projectimages", "project", "projects"})
      */
     private $image;
     

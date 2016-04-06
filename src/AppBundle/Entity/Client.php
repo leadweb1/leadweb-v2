@@ -26,7 +26,7 @@ class Client extends TranslatableEntity
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      * 
-     * @Groups({"project", "projects"})
+     * @Groups({"leadweb", "client", "clients", "project", "projects"})
      */
     private $id;
 
@@ -35,6 +35,8 @@ class Client extends TranslatableEntity
      *
      * @Gedmo\SortablePosition
      * @ORM\Column(name="position", type="integer")
+     * 
+     * @Groups({"leadweb", "client", "clients", "project", "projects"})
      */
     private $position;
 
@@ -44,12 +46,14 @@ class Client extends TranslatableEntity
      * @Gedmo\Translatable
      * @ORM\Column(name="name", type="string", length=255)
      * 
-     * @Groups({"project", "projects"})
+     * @Groups({"leadweb", "client", "clients", "project", "projects"})
      */
     private $name;
 
     /**
      * @ORM\OneToMany(targetEntity="Project", mappedBy="client")
+     * 
+     * @Groups({"leadweb", "client", "clients"})
      */
     private $projects;
 

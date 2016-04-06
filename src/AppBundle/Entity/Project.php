@@ -26,7 +26,7 @@ class Project extends TranslatableEntity
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      * 
-     * @Groups({"project", "projects"})
+     * @Groups({"leadweb", "project", "projects"})
      */
     private $id;
 
@@ -35,6 +35,8 @@ class Project extends TranslatableEntity
      *
      * @Gedmo\SortablePosition
      * @ORM\Column(name="position", type="integer")
+     * 
+     * @Groups({"leadweb", "project", "projects"})
      */
     private $position;
 
@@ -44,7 +46,7 @@ class Project extends TranslatableEntity
      * @Gedmo\Translatable
      * @ORM\Column(name="title", type="string", length=255)
      * 
-     * @Groups({"project", "projects"})
+     * @Groups({"leadweb", "project", "projects", "projectimage", "projectimages", "projecttype", "projecttypes"})
      */
     private $title;
 
@@ -54,7 +56,7 @@ class Project extends TranslatableEntity
      * @Gedmo\Translatable
      * @ORM\Column(name="description", type="text")
      * 
-     * @Groups({"project", "projects"})
+     * @Groups({"leadweb", "project", "projects", "projectimage", "projectimages", "projecttype", "projecttypes"})
      */
     private $description;
 
@@ -63,7 +65,7 @@ class Project extends TranslatableEntity
       *
       * @ORM\OneToMany(targetEntity="ProjectImage", mappedBy="project", cascade={"all"})
      * 
-     * @Groups({"project", "projects"})
+     * @Groups({"leadweb", "project", "projects"})
       */
     private $images;
     
@@ -72,7 +74,7 @@ class Project extends TranslatableEntity
      * 
      * @ORM\ManyToOne(targetEntity="ProjectType", inversedBy="projects")
      * 
-     * @Groups({"project", "projects"})
+     * @Groups({"leadweb", "project", "projects", "projectimage", "projectimages", "projecttype", "projecttypes"})
      */
     private $type;
     
@@ -81,7 +83,7 @@ class Project extends TranslatableEntity
      * 
      * @ORM\ManyToOne(targetEntity="Client", inversedBy="projects")
      * 
-     * @Groups({"project", "projects"})
+     * @Groups({"leadweb", "project", "projects", "projectimage", "projectimages", "projecttype", "projecttypes"})
      */
     private $client;
 

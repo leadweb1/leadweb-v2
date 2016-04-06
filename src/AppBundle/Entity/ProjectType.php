@@ -26,7 +26,7 @@ class ProjectType extends TranslatableEntity
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      * 
-     * @Groups({"project", "projects"})
+     * @Groups({"leadweb", "projecttype", "projecttypes", "project", "projects"})
      */
     private $id;
 
@@ -35,6 +35,8 @@ class ProjectType extends TranslatableEntity
      *
      * @Gedmo\SortablePosition
      * @ORM\Column(name="position", type="integer")
+     * 
+     * @Groups({"leadweb", "projecttype", "projecttypes", "project", "projects"})
      */
     private $position;
 
@@ -44,12 +46,14 @@ class ProjectType extends TranslatableEntity
      * @Gedmo\Translatable
      * @ORM\Column(name="title", type="string", length=255)
      * 
-     * @Groups({"project", "projects"})
+     * @Groups({"leadweb", "projecttype", "projecttypes", "project", "projects"})
      */
     private $title;
 
     /**
      * @ORM\OneToMany(targetEntity="Project", mappedBy="type")
+     * 
+     * @Groups({"leadweb", "projecttype", "projecttypes", "project", "projects"})
      */
     private $projects;
 

@@ -1,4 +1,4 @@
-projects:
+leadweb:
     type:     rest
     name_prefix:  api_
-    resource: AppBundle\Controller\Api\ProjectController
+    resource: AppBundle\Controller\Api\LeadwebController
