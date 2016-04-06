@@ -6,6 +6,8 @@ use Doctrine\ORM\Mapping as ORM;
 
 use JMS\Serializer\Annotation\Groups;
 
+use Gedmo\Mapping\Annotation as Gedmo;
+
 /**
  * ProjectImage
  *
@@ -28,6 +30,7 @@ class ProjectImage
     /**
      * @var int
      *
+     * @Gedmo\SortablePosition
      * @ORM\Column(name="position", type="integer")
      * 
      * @Groups({"project", "projects"})

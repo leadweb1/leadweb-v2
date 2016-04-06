@@ -8,7 +8,7 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 
-class ClientAdmin extends Admin
+class ClientAdmin extends SortableAdmin
 {
     /**
      * @param DatagridMapper $datagridMapper
@@ -25,6 +25,8 @@ class ClientAdmin extends Admin
      */
     protected function configureListFields(ListMapper $listMapper)
     {
+        parent::configureListFields($listMapper);
+        
         $listMapper
             ->add('name')
             ->add('_action', 'actions', array(
@@ -32,6 +34,9 @@ class ClientAdmin extends Admin
                     'show' => array(),
                     'edit' => array(),
                     'delete' => array(),
+                    'move' => array(
+                        'template' => 'PixSortableBehaviorBundle:Default:_sort.html.twig'
+                    ),
                 )
             ))
         ;

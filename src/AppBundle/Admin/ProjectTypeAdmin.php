@@ -8,7 +8,9 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 
-class ProjectTypeAdmin extends Admin
+use AppBundle\Admin\SortableAdmin;
+
+class ProjectTypeAdmin extends SortableAdmin
 {
     /**
      * @param DatagridMapper $datagridMapper
@@ -25,6 +27,8 @@ class ProjectTypeAdmin extends Admin
      */
     protected function configureListFields(ListMapper $listMapper)
     {
+        parent::configureListFields($listMapper);
+        
         $listMapper
             ->add('title')
             ->add('_action', 'actions', array(
@@ -32,6 +36,9 @@ class ProjectTypeAdmin extends Admin
                     'show' => array(),
                     'edit' => array(),
                     'delete' => array(),
+                    'move' => array(
+                        'template' => 'PixSortableBehaviorBundle:Default:_sort.html.twig'
+                    ),
                 )
             ))
         ;

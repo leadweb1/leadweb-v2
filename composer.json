@@ -39,7 +39,9 @@
         "doctrine/doctrine-migrations-bundle": "^1.0",
         "sonata-project/intl-bundle": "^2.2",
         "friendsofsymfony/user-bundle": "~2.0@dev",
-        "nelmio/api-doc-bundle": "^2.12"
+        "nelmio/api-doc-bundle": "^2.12",
+        "pixassociates/sortable-behavior-bundle": "^1.0",
+        "gedmo/doctrine-extensions": "^2.4"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",

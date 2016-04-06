@@ -184,3 +184,8 @@ jms_serializer:
             sonata_media:
                 namespace_prefix: "Sonata\\MediaBundle"
                 path: "@ApplicationSonataMediaBundle/Resources/config/serializer"
+
+stof_doctrine_extensions:
+    orm:
+        default:
+            sortable: true

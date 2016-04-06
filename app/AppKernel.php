@@ -25,6 +25,7 @@ class AppKernel extends Kernel
             
             new JMS\SerializerBundle\JMSSerializerBundle(),
             
+            new Pix\SortableBehaviorBundle\PixSortableBehaviorBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),

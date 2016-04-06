@@ -1,21 +1,27 @@
 services:
-    app.admin.project:
-        class: AppBundle\Admin\ProjectAdmin
-        arguments: [~, AppBundle\Entity\Project, SonataAdminBundle:CRUD]
+    app.admin.client:
+        class: AppBundle\Admin\ClientAdmin
+        arguments: [~, AppBundle\Entity\Client, PixSortableBehaviorBundle:SortableAdmin]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: "Lead-Web", label: Projects}
+            - {name: sonata.admin, manager_type: orm, group: "Lead-Web", label: Clients}
+        calls:
+            - [ setPositionService, ["@pix_sortable_behavior.position"]]
 
     app.admin.project_type:
         class: AppBundle\Admin\ProjectTypeAdmin
-        arguments: [~, AppBundle\Entity\ProjectType, SonataAdminBundle:CRUD]
+        arguments: [~, AppBundle\Entity\ProjectType, PixSortableBehaviorBundle:SortableAdmin]
         tags:
             - {name: sonata.admin, manager_type: orm, group: "Lead-Web", label: "Project Types"}
+        calls:
+            - [ setPositionService, ["@pix_sortable_behavior.position"]]
 
-    app.admin.client:
-        class: AppBundle\Admin\ClientAdmin
-        arguments: [~, AppBundle\Entity\Client, SonataAdminBundle:CRUD]
+    app.admin.project:
+        class: AppBundle\Admin\ProjectAdmin
+        arguments: [~, AppBundle\Entity\Project, PixSortableBehaviorBundle:SortableAdmin]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: "Lead-Web", label: Clients}
+            - {name: sonata.admin, manager_type: orm, group: "Lead-Web", label: Projects}
+        calls:
+            - [ setPositionService, ["@pix_sortable_behavior.position"]]
 
     app.admin.project_image:
         class: AppBundle\Admin\ProjectImageAdmin

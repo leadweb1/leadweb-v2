@@ -7,6 +7,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 
 use JMS\Serializer\Annotation\Groups;
 
+use Gedmo\Mapping\Annotation as Gedmo;
+
 /**
  * Project
  *
@@ -25,6 +27,14 @@ class Project
      * @Groups({"project", "projects"})
      */
     private $id;
+
+    /**
+     * @var int
+     *
+     * @Gedmo\SortablePosition
+     * @ORM\Column(name="position", type="integer")
+     */
+    private $position;
 
     /**
      * @var string
@@ -92,6 +102,30 @@ class Project
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set position
+     *
+     * @param integer $position
+     *
+     * @return ProjectImage
+     */
+    public function setPosition($position)
+    {
+        $this->position = $position;
+
+        return $this;
+    }
+
+    /**
+     * Get position
+     *
+     * @return int
+     */
+    public function getPosition()
+    {
+        return $this->position;
     }
 
     /**
