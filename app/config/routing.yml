@@ -9,7 +9,7 @@ api:
 
 sonata_api_media:
     type:         rest
-    prefix:       /sonata-api
+    prefix:       /media-api
     resource:     "@SonataMediaBundle/Resources/config/routing/api.xml"
 
 admin_area:
