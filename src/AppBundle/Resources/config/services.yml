@@ -25,6 +25,6 @@ services:
 
     app.admin.project_image:
         class: AppBundle\Admin\ProjectImageAdmin
-        arguments: [~, AppBundle\Entity\ProjectImage, SonataAdminBundle:CRUD]
+        arguments: [~, AppBundle\Entity\ProjectImage, PixSortableBehaviorBundle:SortableAdmin]
         tags:
             - {name: sonata.admin, manager_type: orm, group: "Lead-Web", label: "Project Images"}

@@ -73,6 +73,13 @@ doctrine:
                     ApplicationSonataMediaBundle: ~
                     SonataMediaBundle: ~
                     AppBundle: ~
+                    StofDoctrineExtensionsBundle: ~
+                    gedmo_translatable:
+                        type: annotation
+                        prefix: Gedmo\Translatable\Entity
+                        dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Translatable/Entity"
+                        alias: GedmoTranslatable # this one is optional and will default to the name set for the mapping
+                        is_bundle: false
 
 doctrine_migrations:
     dir_name: "%kernel.root_dir%/DoctrineMigrations"
@@ -189,3 +196,18 @@ stof_doctrine_extensions:
     orm:
         default:
             sortable: true
+            translatable: true
+
+lunetics_locale:
+    guessing_order:
+        - query
+        - router
+        - session
+        - cookie
+        - browser
+    allowed_locales:
+        - en
+        - fr
+    cookie:
+        set_on_change: true
+    guessing_excluded_pattern: ^/admin

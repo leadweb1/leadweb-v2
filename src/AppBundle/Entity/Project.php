@@ -9,13 +9,15 @@ use JMS\Serializer\Annotation\Groups;
 
 use Gedmo\Mapping\Annotation as Gedmo;
 
+use AppBundle\Entity\TranslatableEntity;
+
 /**
  * Project
  *
  * @ORM\Table(name="project")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ProjectRepository")
  */
-class Project
+class Project extends TranslatableEntity
 {
     /**
      * @var int
@@ -39,6 +41,7 @@ class Project
     /**
      * @var string
      *
+     * @Gedmo\Translatable
      * @ORM\Column(name="title", type="string", length=255)
      * 
      * @Groups({"project", "projects"})
@@ -48,6 +51,7 @@ class Project
     /**
      * @var string
      *
+     * @Gedmo\Translatable
      * @ORM\Column(name="description", type="text")
      * 
      * @Groups({"project", "projects"})
@@ -80,7 +84,7 @@ class Project
      * @Groups({"project", "projects"})
      */
     private $client;
-    
+
 
     /**
      * Project class constructor

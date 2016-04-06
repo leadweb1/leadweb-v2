@@ -28,6 +28,8 @@ class AppKernel extends Kernel
             new Pix\SortableBehaviorBundle\PixSortableBehaviorBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             
+            new Lunetics\LocaleBundle\LuneticsLocaleBundle(),
+
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             
             new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
