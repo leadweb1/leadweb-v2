@@ -51,23 +51,12 @@ class ProjectImage
      */
     private $image;
     
-    /**
-     * @var string
-     * 
-     * @Groups({"project", "projects"})
-     */
-    private $url;
-
 
     /**
      * ProjectImage class constructor
      */
     public function __construct()
     {
-        var_dump($this->getId());
-        if($this->getId()) {
-            $this->setUrl();
-        }
     }
     
     /**
@@ -150,32 +139,6 @@ class ProjectImage
     public function getImage()
     {
         return $this->image;
-    }
-
-    /**
-     * Set url
-     *
-     * @return ProjectImage
-     */
-    public function setUrl()
-    {
-        $media = $this->image;
-        $provider = $this->get($media->getProviderName());
-        $url = $provider->generatePublicUrl($media, 'default');;
-
-        return $this;
-    }
-
-    /**
-     * Get url
-     *
-     * @return string
-     */
-    public function getUrl()
-    {
-        $this->setUrl();
-        
-        return $this->url;
     }
 
 }

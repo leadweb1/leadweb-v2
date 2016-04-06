@@ -10,10 +10,6 @@
 
         <property xml-attribute-map="true" name="id" type="integer" expose="true" since-version="1.0" groups="sonata_api_read,sonata_api_write,sonata_search,project,projects" />
         <property xml-attribute-map="true" name="name" type="string" expose="true" since-version="1.0" groups="project,projects" />
-        <property xml-attribute-map="true" name="providerName" type="string" expose="true" since-version="1.0" groups="project,projects" />
-        <property xml-attribute-map="true" name="providerStatus" type="integer" expose="true" since-version="1.0" groups="project,projects" />
-        <property xml-attribute-map="true" name="providerReference" type="string" expose="true" since-version="1.0" groups="project,projects" />
-        <property xml-attribute-map="true" name="providerMetadata" type="array" expose="true" since-version="1.0" groups="project,projects" />
         <property xml-attribute-map="true" name="width" type="integer" expose="true" since-version="1.0" groups="project,projects" />
         <property xml-attribute-map="true" name="height" type="integer" expose="true" since-version="1.0" groups="project,projects" />
         <property xml-attribute-map="true" name="context" type="string" expose="true" since-version="1.0" groups="project,projects" />
