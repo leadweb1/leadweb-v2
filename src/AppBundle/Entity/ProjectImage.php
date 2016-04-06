@@ -4,6 +4,8 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+use JMS\Serializer\Annotation\Groups;
+
 /**
  * ProjectImage
  *
@@ -18,6 +20,8 @@ class ProjectImage
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     * 
+     * @Groups({"project", "projects"})
      */
     private $id;
 
@@ -25,6 +29,8 @@ class ProjectImage
      * @var int
      *
      * @ORM\Column(name="position", type="integer")
+     * 
+     * @Groups({"project", "projects"})
      */
     private $position;
 
@@ -40,10 +46,30 @@ class ProjectImage
      * @var Application\Sonata\MediaBundle\Entity\Media
      * 
      * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"all"})
+     * 
+     * @Groups({"project", "projects"})
      */
     private $image;
+    
+    /**
+     * @var string
+     * 
+     * @Groups({"project", "projects"})
+     */
+    private $url;
 
 
+    /**
+     * ProjectImage class constructor
+     */
+    public function __construct()
+    {
+        var_dump($this->getId());
+        if($this->getId()) {
+            $this->setUrl();
+        }
+    }
+    
     /**
      * Get id
      *
@@ -125,5 +151,32 @@ class ProjectImage
     {
         return $this->image;
     }
+
+    /**
+     * Set url
+     *
+     * @return ProjectImage
+     */
+    public function setUrl()
+    {
+        $media = $this->image;
+        $provider = $this->get($media->getProviderName());
+        $url = $provider->generatePublicUrl($media, 'default');;
+
+        return $this;
+    }
+
+    /**
+     * Get url
+     *
+     * @return string
+     */
+    public function getUrl()
+    {
+        $this->setUrl();
+        
+        return $this->url;
+    }
+
 }
 

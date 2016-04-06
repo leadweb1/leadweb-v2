@@ -30,6 +30,56 @@ class Media extends BaseMedia
      */
     protected $id;
     
+    /**
+     * @var string
+     */
+    protected $name;
+
+    /**
+     * @var text
+     */
+    protected $description;
+
+    /**
+     * @var string
+     */
+    protected $providerName;
+
+    /**
+     * @var int
+     */
+    protected $providerStatus;
+
+    /**
+     * @var string
+     */
+    protected $providerReference;
+
+    /**
+     * @var array
+     */
+    protected $providerMetadata = array();
+
+    /**
+     * @var int
+     */
+    protected $width;
+
+    /**
+     * @var int
+     */
+    protected $height;
+
+    /**
+     * @var string
+     */
+    protected $context;
+
+    /**
+     * @var varchar
+     */
+    protected $contentType;
+
 
     /**
      * Get id
@@ -40,4 +90,85 @@ class Media extends BaseMedia
     {
         return $this->id;
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getProviderName()
+    {
+        return $this->providerName;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getProviderStatus()
+    {
+        return $this->providerStatus;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getProviderReference()
+    {
+        return $this->providerReference;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getProviderMetadata()
+    {
+        return $this->providerMetadata;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getWidth()
+    {
+        return $this->width;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getHeight()
+    {
+        return $this->height;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getContext()
+    {
+        return $this->context;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getContentType()
+    {
+        return $this->contentType;
+    }
+
 }

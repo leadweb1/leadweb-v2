@@ -28,7 +28,9 @@ class AppKernel extends Kernel
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
-
+            
+            new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
+            
             new Sonata\CoreBundle\SonataCoreBundle(),
             new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
             new Sonata\BlockBundle\SonataBlockBundle(),

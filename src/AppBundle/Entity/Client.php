@@ -5,6 +5,8 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 
+use JMS\Serializer\Annotation\Groups;
+
 /**
  * Client
  *
@@ -19,6 +21,8 @@ class Client
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     * 
+     * @Groups({"project", "projects"})
      */
     private $id;
 
@@ -26,6 +30,8 @@ class Client
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
+     * 
+     * @Groups({"project", "projects"})
      */
     private $name;
 

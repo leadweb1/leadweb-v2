@@ -5,6 +5,8 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 
+use JMS\Serializer\Annotation\Groups;
+
 /**
  * Project
  *
@@ -19,6 +21,8 @@ class Project
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     * 
+     * @Groups({"project", "projects"})
      */
     private $id;
 
@@ -26,6 +30,8 @@ class Project
      * @var string
      *
      * @ORM\Column(name="title", type="string", length=255)
+     * 
+     * @Groups({"project", "projects"})
      */
     private $title;
 
@@ -33,6 +39,8 @@ class Project
      * @var string
      *
      * @ORM\Column(name="description", type="text")
+     * 
+     * @Groups({"project", "projects"})
      */
     private $description;
 
@@ -40,6 +48,8 @@ class Project
       * @var ProjectImage
       *
       * @ORM\OneToMany(targetEntity="ProjectImage", mappedBy="project", cascade={"all"})
+     * 
+     * @Groups({"project", "projects"})
       */
     private $images;
     
@@ -47,6 +57,8 @@ class Project
      * @var ProductType
      * 
      * @ORM\ManyToOne(targetEntity="ProjectType", inversedBy="projects")
+     * 
+     * @Groups({"project", "projects"})
      */
     private $type;
     
@@ -54,6 +66,8 @@ class Project
      * @var Client
      * 
      * @ORM\ManyToOne(targetEntity="Client", inversedBy="projects")
+     * 
+     * @Groups({"project", "projects"})
      */
     private $client;
     
