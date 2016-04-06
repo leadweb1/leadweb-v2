@@ -19,6 +19,7 @@ class ProjectTypeAdmin extends SortableAdmin
     {
         $datagridMapper
             ->add('title')
+            ->add('slug')
         ;
     }
 
@@ -31,6 +32,7 @@ class ProjectTypeAdmin extends SortableAdmin
         
         $listMapper
             ->add('title')
+            ->add('slug')
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -61,6 +63,7 @@ class ProjectTypeAdmin extends SortableAdmin
     {
         $showMapper
             ->add('title')
+            ->add('slug')
         ;
     }
 }

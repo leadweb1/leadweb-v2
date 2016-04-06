@@ -61,6 +61,15 @@ class Project extends TranslatableEntity
     private $description;
 
     /**
+     * @Gedmo\Slug(fields={"title"}, updatable=false)
+     * @Gedmo\Translatable
+     * @ORM\Column(name="slug", length=128, unique=true)
+     * 
+     * @Groups({"leadweb", "project", "projects", "projectimage", "projectimages", "projecttype", "projecttypes"})
+     */
+    private $slug;
+
+    /**
       * @var ProjectImage
       *
       * @ORM\OneToMany(targetEntity="ProjectImage", mappedBy="project", cascade={"all"})
@@ -267,6 +276,30 @@ class Project extends TranslatableEntity
         $this->images->remove($image);
 
         return $this;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     *
+     * @return Client
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }
 

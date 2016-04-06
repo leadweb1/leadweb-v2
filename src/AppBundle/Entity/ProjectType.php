@@ -51,6 +51,15 @@ class ProjectType extends TranslatableEntity
     private $title;
 
     /**
+     * @Gedmo\Slug(fields={"title"}, updatable=false)
+     * @Gedmo\Translatable
+     * @ORM\Column(name="slug", length=128, unique=true)
+     * 
+     * @Groups({"leadweb", "projecttype", "projecttypes", "project", "projects"})
+     */
+    private $slug;
+
+    /**
      * @ORM\OneToMany(targetEntity="Project", mappedBy="type")
      * 
      * @Groups({"leadweb", "projecttype", "projecttypes", "project", "projects"})
@@ -126,6 +135,30 @@ class ProjectType extends TranslatableEntity
     public function getTitle()
     {
         return $this->title;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     *
+     * @return Client
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }
 

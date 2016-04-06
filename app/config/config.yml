@@ -197,6 +197,7 @@ stof_doctrine_extensions:
         default:
             sortable: true
             translatable: true
+            sluggable: true
 
 lunetics_locale:
     guessing_order:

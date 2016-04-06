@@ -32,19 +32,43 @@ class LeadwebController extends FOSRestController implements ClassResourceInterf
     {
         $em = $this->getDoctrine()->getManager();
         
-        $clientsRepoRepository = $em->getRepository('AppBundle:Client');
-        $clients = $clientsRepoRepository->findAll();
+        $repo = $em->getRepository('AppBundle:Client');
+        $results = $repo->findAll();
+        $clients = [];
+        $clients_by_slug = [];
+        foreach($results as $client) {
+            $clients[$client->getId()] = $client;
+            $clients_by_slug[$client->getSlug()] = $client->getId();
+            $client_slugs_by_id = array_flip($clients_by_slug);
+        }
         
-        $projecttypesRepoRepository = $em->getRepository('AppBundle:ProjectType');
-        $projecttypes = $projecttypesRepoRepository->findAll();
+        $repo = $em->getRepository('AppBundle:ProjectType');
+        $results = $repo->findAll();
+        $projecttypes = [];
+        $projecttypes_by_slug = [];
+        foreach($results as $projecttype) {
+            $projecttypes[$projecttype->getId()] = $projecttype;
+            $projecttypes_by_slug[$projecttype->getSlug()] = $projecttype->getId();
+            $projecttype_slugs_by_id = array_flip($projecttypes_by_slug);
+        }
         
-        $projectsRepoRepository = $em->getRepository('AppBundle:Project');
-        $projects = $projectsRepoRepository->findAll();
+        $repo = $em->getRepository('AppBundle:Project');
+        $results = $repo->findAll();
+        $projects = [];
+        $projects_by_slug = [];
+        foreach($results as $project) {
+            $projects[$project->getId()] = $project;
+            $projects_by_slug[$project->getSlug()] = $project->getId();
+            $project_slugs_by_id = array_flip($projects_by_slug);
+        }
         
         $data = [
             'clients' => $clients,
+            'clients_by_slug' => $clients_by_slug,
             'projecttypes' => $projecttypes,
+            'projecttypes_by_slug' => $projecttypes_by_slug,
             'projects' => $projects,
+            'projects_by_slug' => $projects_by_slug,
         ];
         
         return $this->createView($data, 'leadweb');

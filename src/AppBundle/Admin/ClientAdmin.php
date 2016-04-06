@@ -17,6 +17,7 @@ class ClientAdmin extends SortableAdmin
     {
         $datagridMapper
             ->add('name')
+            ->add('slug')
         ;
     }
 
@@ -29,6 +30,7 @@ class ClientAdmin extends SortableAdmin
         
         $listMapper
             ->add('name')
+            ->add('slug')
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -59,6 +61,7 @@ class ClientAdmin extends SortableAdmin
     {
         $showMapper
             ->add('name')
+            ->add('slug')
         ;
     }
 }

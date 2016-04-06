@@ -51,6 +51,15 @@ class Client extends TranslatableEntity
     private $name;
 
     /**
+     * @Gedmo\Slug(fields={"name"}, updatable=false)
+     * @Gedmo\Translatable
+     * @ORM\Column(name="slug", length=128, unique=true)
+     * 
+     * @Groups({"leadweb", "client", "clients", "project", "projects"})
+     */
+    private $slug;
+
+    /**
      * @ORM\OneToMany(targetEntity="Project", mappedBy="client")
      * 
      * @Groups({"leadweb", "client", "clients"})
@@ -126,6 +135,30 @@ class Client extends TranslatableEntity
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     *
+     * @return Client
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }
 
