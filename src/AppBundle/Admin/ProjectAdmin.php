@@ -51,7 +51,7 @@ class ProjectAdmin extends Admin
             ->add('description')
             ->add('type', 'sonata_type_model', array(
                 'class' => 'AppBundle\Entity\ProjectType',
-                'empty_value' => 'Select a projecty type...',
+                'empty_value' => 'Select a project type...',
                 'btn_add' => false,
             ))
             ->add('client', 'sonata_type_model', array(

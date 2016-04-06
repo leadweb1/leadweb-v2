@@ -16,6 +16,7 @@ class ProjectImageAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
+            ->add('project')
             ->add('position')
         ;
     }
@@ -26,6 +27,7 @@ class ProjectImageAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
+            ->add('project')
             ->add('position')
             ->add('_action', 'actions', array(
                 'actions' => array(
@@ -43,6 +45,11 @@ class ProjectImageAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
+            ->add('project', 'sonata_type_model', array(
+                'class' => 'AppBundle\Entity\Project',
+                'empty_value' => 'Select a project...',
+                'btn_add' => false,
+            ))
             ->add('image', 'sonata_type_model_list', array(
                 'required' => false
             ), array(
@@ -60,6 +67,7 @@ class ProjectImageAdmin extends Admin
     protected function configureShowFields(ShowMapper $showMapper)
     {
         $showMapper
+            ->add('project')
             ->add('position')
         ;
     }

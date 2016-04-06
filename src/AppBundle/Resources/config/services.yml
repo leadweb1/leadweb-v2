@@ -3,22 +3,22 @@ services:
         class: AppBundle\Admin\ProjectAdmin
         arguments: [~, AppBundle\Entity\Project, SonataAdminBundle:CRUD]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: admin, label: Project}
+            - {name: sonata.admin, manager_type: orm, group: "Lead-Web", label: Projects}
 
     app.admin.project_type:
         class: AppBundle\Admin\ProjectTypeAdmin
         arguments: [~, AppBundle\Entity\ProjectType, SonataAdminBundle:CRUD]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: admin, label: ProjectType}
+            - {name: sonata.admin, manager_type: orm, group: "Lead-Web", label: "Project Types"}
 
     app.admin.client:
         class: AppBundle\Admin\ClientAdmin
         arguments: [~, AppBundle\Entity\Client, SonataAdminBundle:CRUD]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: admin, label: Client}
+            - {name: sonata.admin, manager_type: orm, group: "Lead-Web", label: Clients}
 
     app.admin.project_image:
         class: AppBundle\Admin\ProjectImageAdmin
         arguments: [~, AppBundle\Entity\ProjectImage, SonataAdminBundle:CRUD]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: admin, label: ProjectImage}
+            - {name: sonata.admin, manager_type: orm, group: "Lead-Web", label: "Project Images"}
