@@ -63,6 +63,7 @@ class LeadwebController extends FOSRestController implements ClassResourceInterf
         }
         
         $data = [
+            'lang' => explode('_', $this->get('request')->getLocale())[0],
             'clients' => $clients,
             'clients_by_slug' => $clients_by_slug,
             'projecttypes' => $projecttypes,
