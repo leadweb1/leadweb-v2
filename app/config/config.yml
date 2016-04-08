@@ -161,10 +161,15 @@ fos_rest:
     view:
         formats:
             json: true
+            jsonp: true
             html: false
         templating_formats:
             html: false
         view_response_listener: force
+        jsonp_handler: ~
+        mime_types:
+            json: ['application/json', 'application/x-json', 'application/vnd.example-com.foo+json']
+            jsonp: ['application/jsonp']
     routing_loader:
         default_format: json
         include_format: true
