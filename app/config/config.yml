@@ -148,6 +148,7 @@ sonata_translation:
 sonata_admin:
     templates:
         layout: admin/layout.html.twig
+        user_block: AppBundle:Admin:admin_topnav.html.twig
 
 fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
