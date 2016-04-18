@@ -17,3 +17,6 @@ parameters:
 
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
+
+    facebookAppId: my_app_id
+    shareProjectBaseUrl: http://leadweb-v2-frontend.leadweb1.demo.lead-web.com/
