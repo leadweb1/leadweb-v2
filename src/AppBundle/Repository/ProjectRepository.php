@@ -10,4 +10,13 @@ namespace AppBundle\Repository;
  */
 class ProjectRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findBySlug($slug)
+    {
+    	$query = $this->createQueryBuilder('a')
+    	->Where('a.slug = :arg')
+    	->setParameter('arg', $slug)
+    	->getQuery();
+    
+    	return $query->getOneOrNullResult();
+    }
 }

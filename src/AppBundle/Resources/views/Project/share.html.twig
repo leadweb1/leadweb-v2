@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta property="fb:app_id"          content="{{ facebookAppId }}" > 
+        <meta property="og:url"             content="{{ shareProjectUrl }}"  > 
+        <meta property="og:title"           content="{{ project.title }}" > 
+        <meta property="og:image"           content="{#{ project.images[0] }#}"  > 
+        <meta property="og:description"     content="{{ project.description }}"  >
+        <meta property="og:site_name"       content="{{ project.title }}" >
+        <meta property="og:type"            content="project" >
+        <title>{{ project.title }}</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+        {% block javascripts %}
+            <script type="text/javascript">
+            var redir = setTimeout(function(){
+                alert('{{ redirectUrl }}');
+                //window.location.href = '{{ redirectUrl }}';
+            }, 1000);
+            </script>
+        {% endblock %}
+    </body>
+</html>
