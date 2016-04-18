@@ -5,7 +5,11 @@
         <meta property="fb:app_id"          content="{{ facebookAppId }}" > 
         <meta property="og:url"             content="{{ shareProjectUrl }}"  > 
         <meta property="og:title"           content="{{ project.title }}" > 
-        <meta property="og:image"           content="{#{ project.images[0] }#}"  > 
+        {% if project.images|length > 0 %}
+            {% for image in project.images %}
+        <meta property="og:image"           content="{% path image.image, 'reference' %}"  > 
+            {% endfor %}
+        {% endif %}
         <meta property="og:description"     content="{{ project.description }}"  >
         <meta property="og:site_name"       content="{{ project.title }}" >
         <meta property="og:type"            content="project" >
