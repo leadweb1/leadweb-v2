@@ -3,6 +3,9 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+
+use JMS\Serializer\Annotation\Groups;
 
 /**
  * Skill
@@ -18,6 +21,8 @@ class Skill
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     * 
+     * @Groups({"leadweb", "skill", "skills", "tag", "tags"})
      */
     private $id;
 
@@ -25,18 +30,22 @@ class Skill
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
+     * 
+     * @Groups({"leadweb", "skill", "skills", "tag", "tags"})
      */
     private $name;
 
     /**
      * @ORM\ManyToMany(targetEntity="Tag", inversedBy="skills")
      * @ORM\JoinTable(name="skills_tags")
+     * 
+     * @Groups({"leadweb", "skill", "skills", "tag", "tags"})
      */
     private $tags;
 
 
     public function __construct() {
-        $this->tags = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->tags = new ArrayCollection();
     }
     
     public function __toString() {
