@@ -28,3 +28,15 @@ services:
         arguments: [~, AppBundle\Entity\ProjectImage, PixSortableBehaviorBundle:SortableAdmin]
         tags:
             - {name: sonata.admin, manager_type: orm, group: "Lead-Web", label: "Project Images"}
+
+    app.admin.skill:
+        class: AppBundle\Admin\SkillAdmin
+        arguments: [~, AppBundle\Entity\Skill, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: "Lead-Web", label: "Skills"}
+
+    app.admin.tag:
+        class: AppBundle\Admin\TagAdmin
+        arguments: [~, AppBundle\Entity\Tag, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: "Lead-Web", label: "Tags"}
