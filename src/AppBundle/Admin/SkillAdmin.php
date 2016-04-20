@@ -17,7 +17,6 @@ class SkillAdmin extends Admin
     {
         $datagridMapper
             ->add('name')
-            ->add('tags')
         ;
     }
 
@@ -44,18 +43,9 @@ class SkillAdmin extends Admin
      */
     protected function configureFormFields(FormMapper $formMapper)
     {
-        $em = $this->modelManager->getEntityManager('\AppBundle\\Entity\\Tag');
-
-        $query = $em->createQueryBuilder('t')
-            ->select('t')
-            ->from('AppBundle:Tag', 't');
-
         $formMapper
             ->add('name')
-            ->add('features', 'sonata_type_model', array(
-                'required' => true, 
-                'query' => $query
-            ))
+            ->add('tags', 'sonata_type_model_autocomplete', array('property' => 'name', 'multiple' => true))
         ;
     }
 
