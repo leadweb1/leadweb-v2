@@ -61,8 +61,7 @@ class Project extends TranslatableEntity
     private $description;
 
     /**
-     * @Gedmo\Slug(fields={"title"}, updatable=true)
-     * @Gedmo\Translatable
+     * @Gedmo\Slug(fields={"title"}, updatable=false)
      * @ORM\Column(name="slug", length=128, unique=true)
      * 
      * @Groups({"leadweb", "project", "projects", "projectimage", "projectimages", "projecttype", "projecttypes"})

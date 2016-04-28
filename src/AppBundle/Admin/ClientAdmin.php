@@ -51,7 +51,6 @@ class ClientAdmin extends SortableAdmin
     {
         $formMapper
             ->add('name')
-            ->add('slug')
         ;
     }
 

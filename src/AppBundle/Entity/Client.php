@@ -51,8 +51,7 @@ class Client extends TranslatableEntity
     private $name;
 
     /**
-     * @Gedmo\Slug(fields={"name"}, updatable=true)
-     * @Gedmo\Translatable
+     * @Gedmo\Slug(fields={"name"}, updatable=false)
      * @ORM\Column(name="slug", length=128, unique=true)
      * 
      * @Groups({"leadweb", "client", "clients", "project", "projects"})

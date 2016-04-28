@@ -53,7 +53,6 @@ class ProjectTypeAdmin extends SortableAdmin
     {
         $formMapper
             ->add('title')
-            ->add('slug')
         ;
     }
 

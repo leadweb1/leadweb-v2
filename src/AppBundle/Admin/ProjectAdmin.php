@@ -57,7 +57,6 @@ class ProjectAdmin extends SortableAdmin
     {
         $formMapper
             ->add('title')
-            ->add('slug')
             ->add('description')
             ->add('type', 'sonata_type_model', array(
                 'class' => 'AppBundle\Entity\ProjectType',
