@@ -10,4 +10,13 @@ namespace AppBundle\Repository;
  */
 class PageRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findByModule($module)
+    {
+    	$query = $this->createQueryBuilder('a')
+    	->Where('a.module = :arg')
+    	->setParameter('arg', 'root.'.$module)
+    	->getQuery();
+    
+    	return $query->getOneOrNullResult();
+    }
 }

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta property="fb:app_id"          content="{{ facebookAppId }}" > 
+        <meta property="og:url"             content="{{ sharePageUrl }}"  > 
+        <meta property="og:title"           content="{{ page.metadata.title }}" > 
+        {% if page.metadata.image != null %}
+        <meta property="og:image"           content="{% path page.metadata.image, 'reference' %}"  > 
+        {% endif %}
+        <meta property="og:description"     content="{{ page.metadata.description }}"  >
+        <meta property="og:site_name"       content="{{ page.metadata.title }}" >
+        <meta property="og:type"            content="page" >
+        <title>{{ page.name }}</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        Redirecting...
+        {% block javascripts %}
+            <script type="text/javascript">
+            var redir = setTimeout(function(){
+                window.location.href = '{{ redirectUrl }}';
+            }, 1000);
+            </script>
+        {% endblock %}
+    </body>
+</html>
