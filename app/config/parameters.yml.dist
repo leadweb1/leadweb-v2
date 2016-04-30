@@ -19,4 +19,4 @@ parameters:
     secret:            ThisTokenIsNotSoSecretChangeIt
 
     facebookAppId: my_app_id
-    shareBaseUrl: http://leadweb-v2-frontend.leadweb1.demo.lead-web.com/#
+    frontendBaseUrl: http://leadweb-v2-frontend.leadweb1.demo.lead-web.com/#

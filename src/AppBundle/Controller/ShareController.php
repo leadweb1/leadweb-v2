@@ -14,7 +14,12 @@ use AppBundle\Entity\Project;
 /**
  * @Route("/{lang}")
  */
-class ShareController extends Controller {
+class ShareController extends Controller
+{
+
+    private function getBaseUrl(Request $request) {
+        return $this->getParameter('frontendBaseUrl').'/'.$request->get('lang');
+    }
 
     /**
      * @Route("/page/{page}", name="share_page")
@@ -34,7 +39,7 @@ class ShareController extends Controller {
                 'lang' => $request->get('lang'),
                 'page' => $page->getModule(),
             ]),
-            'redirectUrl' => $this->getParameter('shareBaseUrl').'/'.$request->get('lang').'/'.  preg_replace('/root./', '', $page->getModule()),
+            'redirectUrl' => $this->getBaseUrl($request).'/'.preg_replace('/root./', '', $page->getModule()),
             'page' => $page,
         ];
     }
@@ -57,7 +62,7 @@ class ShareController extends Controller {
                 'lang' => $request->get('lang'),
                 'project' => $project->getSlug(),
             ]),
-            'redirectUrl' => $this->getParameter('shareBaseUrl').'project/'.$project->getSlug(),
+            'redirectUrl' => $this->getBaseUrl($request).'/project/'.$project->getSlug(),
             'project' => $project,
         ];
     }
