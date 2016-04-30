@@ -7,7 +7,7 @@
         <meta property="og:title"           content="{{ project.title }}" > 
         {% if project.images|length > 0 %}
             {% for image in project.images %}
-        <meta property="og:image"           content="{% path image.image, 'reference' %}"  > 
+        <meta property="og:image"           content="{{ app.request.getSchemeAndHttpHost() }}{% path image.image, 'reference' %}"  >
             {% endfor %}
         {% endif %}
         <meta property="og:description"     content="{{ project.description }}"  >

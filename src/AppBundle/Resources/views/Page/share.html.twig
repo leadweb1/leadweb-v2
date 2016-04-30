@@ -6,7 +6,7 @@
         <meta property="og:url"             content="{{ sharePageUrl }}"  > 
         <meta property="og:title"           content="{{ page.metadata.title }}" > 
         {% if page.metadata.image != null %}
-        <meta property="og:image"           content="{% path page.metadata.image, 'reference' %}"  > 
+        <meta property="og:image"           content="{{ app.request.getSchemeAndHttpHost() }}{% path page.metadata.image, 'reference' %}"  >
         {% endif %}
         <meta property="og:description"     content="{{ page.metadata.description }}"  >
         <meta property="og:site_name"       content="{{ page.metadata.title }}" >
