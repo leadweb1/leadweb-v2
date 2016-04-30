@@ -40,3 +40,15 @@ services:
         arguments: [~, AppBundle\Entity\Tag, SonataAdminBundle:CRUD]
         tags:
             - {name: sonata.admin, manager_type: orm, group: "Lead-Web", label: "Tags"}
+
+    app.admin.metadata:
+        class: AppBundle\Admin\MetadataAdmin
+        arguments: [~, AppBundle\Entity\Metadata, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: "Lead-Web", label: "Metadata"}
+
+    app.admin.page:
+        class: AppBundle\Admin\PageAdmin
+        arguments: [~, AppBundle\Entity\Page, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: "Lead-Web", label: "Pages"}

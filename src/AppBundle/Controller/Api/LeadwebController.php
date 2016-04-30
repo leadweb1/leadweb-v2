@@ -74,6 +74,18 @@ class LeadwebController extends FOSRestController implements ClassResourceInterf
             $tags_by_type[$tag->getType()][] = $tag->getId();
         }
 
+        $repo = $em->getRepository('AppBundle:Page');
+        $results = $repo->findAll();
+        $pages = [];
+        $pages_by_module = [];
+        foreach($results as $page) {
+            $pages[$page->getId()] = $page;
+            if(!isset($pages_by_module[$page->getModule()])) {
+                $pages_by_module[$page->getModule()] = [];
+            }
+            $pages_by_module[$page->getModule()][] = $page->getId();
+        }
+
         $data = [
             'lang' => explode('_', $this->get('request')->getLocale())[0],
 
@@ -88,6 +100,9 @@ class LeadwebController extends FOSRestController implements ClassResourceInterf
 
             'projects' => $projects,
             'projects_by_slug' => $projects_by_slug,
+
+            'pages' => $pages,
+            'pages_by_module' => $pages_by_module,
         ];
         
         return $this->createView($data, 'leadweb');
